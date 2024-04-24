@@ -20,6 +20,8 @@ services:
       # Tell Dockge where to find the stacks
       - DOCKGE_STACKS_DIR=/home/donna
 
+# macvlan-net-1 created to establish standalone ip (must create this before running docker-compose file)
+# docker network create -d macvlan --subnet=10.10.20.0/24 --gateway=10.10.20.1 --ip-range=10.10.20.250/32 -o parent=ens33 macvlan-net-1
 networks:
   macvlan-net-1:
     external: true
