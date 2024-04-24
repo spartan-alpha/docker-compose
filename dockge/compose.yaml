@@ -6,8 +6,9 @@ services:
     networks: 
       - macvlan-net-1
     restart: unless-stopped
-    ports:
-      - 5001:5001
+# ports are commented out b/c of the use of macvlan with seperate ip
+#    ports:
+#      - 5001:5001
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/app/data
