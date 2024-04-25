@@ -4,11 +4,10 @@ services:
   dockge:
     image: louislam/dockge:1
     networks: 
-      - macvlan-net-1
+      - proxy
     restart: unless-stopped
-# ports are commented out b/c of the use of macvlan with seperate ip
-#    ports:
-#      - 5001:5001
+    ports:
+      - 5001:5001
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/app/data
@@ -24,5 +23,5 @@ services:
 # macvlan-net-1 created to establish standalone ip (must create this before running docker-compose file)
 # docker network create -d macvlan --subnet=10.10.20.0/24 --gateway=10.10.20.1 --ip-range=10.10.20.250/32 -o parent=ens33 macvlan-net-1
 networks:
-  macvlan-net-1:
+  proxy:
     external: true
