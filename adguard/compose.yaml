@@ -3,28 +3,25 @@ services:
   adguardhome:
     container_name: adguardhome
     image: adguard/adguardhome
-    networks:
-      - macvlan-adguard
+    network_mode: host
     restart: unless-stopped
     volumes:
       - /home/donna/stacks/work:/opt/adguardhome/work
       - /home/donna/stacks/conf:/opt/adguardhome/conf
-#    ports:
-#      - 53:53/tcp
-#      - 53:53/udp
-#      - 67:67/udp
-#      - 68:68/udp
-#      - 80:80/tcp
-#      - 443:443/tcp
-#      - 443:443/udp
-#      - 3000:3000/tcp
-#      - 853:853/tcp
-#      - 853:853/udp
-#      - 5443:5443/tcp
-#      - 5443:5443/udp
-#      - 6060:6060/tcp
-
-# docker network create -d macvlan --subnet=10.10.20.0/24 --gateway=10.10.20.1 --ip-range=10.10.20.253/32 -o parent=ens33 macvlan-adguard
-networks:
-  macvlan-adguard:
-    external: true
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 68:68/udp
+      - 80:80/tcp
+      - 443:443/tcp
+      - 443:443/udp
+      - 3000:3000/tcp
+      - 853:853/tcp
+      - 853:853/udp
+      - 5443:5443/tcp
+      - 5443:5443/udp
+      - 6060:6060/tcp
+networks: {}
+# use the below github article to disable bind:53 on ubuntu
+# https://github.com/AdguardTeam/AdGuardHome/wiki/FAQ#bindinuse
