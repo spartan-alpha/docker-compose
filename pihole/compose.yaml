@@ -9,6 +9,7 @@ services:
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     environment:
       TZ: America/NewYork
+      WEBPASSWORD_FILE: /run/secrets/webpassword
       # WEBPASSWORD: 'set a secure password here or it will be random'
       # Volumes store your data between container upgrades
     volumes:
@@ -21,4 +22,4 @@ services:
 networks: {}
 secrets:
   webpassword:
-    file: webpassword.txt
+    file: ./webpassword.txt
