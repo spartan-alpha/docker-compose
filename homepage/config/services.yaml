@@ -1,0 +1,30 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- My First Group:
+    - My First Service:
+        href: http://localhost/
+        description: Homepage is awesome
+
+- My Second Group:
+    - My Second Service:
+        href: http://localhost/
+        description: Homepage is the best
+
+- My Third Group:
+    - My Third Service:
+        href: http://localhost/
+        description: Homepage is 😎
+
+- Group A:
+    - Dockge:
+        icon: dockge.png
+        href: http://10.10.20.230:5001
+        ping: http://10.10.20.230:5001
+
+- Group B:
+    - Pihole:
+        icon: pi-hole.png
+        href: http://10.10.20.230/admin/
+        ping: http://10.10.20.230/admin/
