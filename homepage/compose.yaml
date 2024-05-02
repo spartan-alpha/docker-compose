@@ -1,0 +1,17 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    networks:
+      - proxy
+    ports:
+      - 3000:3000
+    volumes:
+      - /home/donna/stacks/homepage/config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
+      #environment: (use PUID and PGID to run homepage as non-root user)
+      #PUID: $PUID
+      #PGID: $PGID
+networks:
+  proxy:
+    external: true
